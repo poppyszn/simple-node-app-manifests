@@ -1,0 +1,9 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-node-app-ingress
+  namespace: simple-node-app
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: "prod.vasconsolutionsapp.com"

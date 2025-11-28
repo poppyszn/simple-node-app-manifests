@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-node-app
+  namespace: simple-node-app
+  labels:
+    app: simple-node-app
+    env: production
+spec:
+  replicas: 5

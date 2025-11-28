@@ -1,0 +1,27 @@
+name: Setup ArgoCD Repo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  setup-argocd-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout manifests repo
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Write SSH key from secrets
+        run: |
+          echo "${{ secrets.ARGOCD_DEPLOY_KEY }}" > id_rsa
+          chmod 600 id_rsa
+
+      - name: Configure ArgoCD repo access
+        run: |
+          argocd login $ARGOCD_SERVER --username admin --password $ARGOCD_PASSWORD --insecure
+          argocd repo add git@github.com:poppyszn/simple-node-app-manifests.git \
+            --ssh-private-key-path ./id_rsa
+        env:
+          ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
+          ARGOCD_PASSWORD: ${{ secrets.ARGOCD_PASSWORD }}

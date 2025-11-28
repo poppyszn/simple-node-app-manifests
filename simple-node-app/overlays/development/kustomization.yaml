@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: simple-node-app-dev
+resources:
+  - ../../base
+patches:
+  - path: deployment.yaml
+    target:
+      kind: Deployment
+      name: .*
+
+images:
+- name: precious/simple-node-app
+  newName: precious/simple-node-app
+  newTag: latest
