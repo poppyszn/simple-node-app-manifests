@@ -19,5 +19,4 @@ patches:
 
 images:
 - name: precious/simple-node-app
-  newName: precious/simple-node-app
-  newTag: latest
+  newTag: 7ffcdc166b71e145f90785d33e6f82bd46138b9a
