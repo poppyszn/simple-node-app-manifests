@@ -7,3 +7,12 @@ spec:
   ingressClassName: nginx
   rules:
     - host: "prod.vasconsolutionsapp.com"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: simple-node-app-clusterip
+                port:
+                  number: 80
