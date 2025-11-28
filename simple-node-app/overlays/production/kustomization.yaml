@@ -19,4 +19,5 @@ patches:
 
 images:
 - name: precious/simple-node-app
+  newName: 801244285013.dkr.ecr.eu-west-1.amazonaws.com/precious/simple-node-app
   newTag: 7ffcdc166b71e145f90785d33e6f82bd46138b9a
