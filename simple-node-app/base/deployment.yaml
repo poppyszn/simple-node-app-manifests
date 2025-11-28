@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: simple-node-app
-          image: precious/simple-node-app:argocd
+          image: 801244285013.dkr.ecr.eu-west-1.amazonaws.com/precious/simple-node-app:argocd
           # imagePullPolicy: Never
           ports:
             - containerPort: 3000
